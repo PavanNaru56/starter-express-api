@@ -1,0 +1,4 @@
+.habit-container{
+    display: flex;
+    justify-content: space-evenly;
+}

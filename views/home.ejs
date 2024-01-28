@@ -1,0 +1,32 @@
+
+<div class="home-controller" >
+<h1>Home</h1>
+
+<button id = "dash-btn"><a href="/users/weekly" id="dashboard">Dashboard</a></button>
+
+</div>
+<div class="search-container">
+<form action="/habit/create-habit" method="POST" class="form-container" required>
+    <input type="text" name = "title" placeholder="Enter habit name" id ="input">
+    <button type = "submit" id="save-btn">Save</button>
+</form>
+</div>
+
+<% if(locals.habits.length == 0) { %>
+    <p>Looks like you are not started the habits</p>
+<% }
+  else { %>
+
+    <% for(let habit of habits) { %>
+            <div class = "habit-container">
+                <h2 id = "habit-title"><%= habit.title  %></h2>
+                <p id = "habit-date"> Started on : <%= habit.dates[0].date %></p>
+                <a href="habit/destroy/<%= habit.id %>" id="delete-habit"><i class="fas fa-times-circle" style="color: rgb(241, 121, 109)"></i></a>
+            </div>
+
+
+        <% } %>
+
+       
+
+    <% } %>
